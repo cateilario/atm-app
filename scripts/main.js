@@ -1,3 +1,8 @@
+/**
+ * @author Caterina Ilario
+ * @GitHub https://github.com/cateilario/atm-app.git
+ */
+
 document.addEventListener("DOMContentLoaded", () =>{
 
 const withdrawAmount = document.getElementById("withdraw");
