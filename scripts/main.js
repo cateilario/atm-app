@@ -3,35 +3,40 @@ document.addEventListener("DOMContentLoaded", () =>{
 const withdrawAmount = document.getElementById("withdraw");
 const depositAmount = document.getElementById("deposit");
 const actionInput = document.getElementById("action");
+const amountInput = document.getElementById("amount");
+let balance = document.getElementById("balance");
 
-let amount = parseFloat(document.getElementById("amount").value);
-let initialBalance = parseFloat(document.getElementById("balance").value);
-
-initialBalance = 1000;
-amount = '';
+const initialBalance = 1000;
+let currentBalance = initialBalance;
 
 withdrawAmount.addEventListener("click", () =>{
-    if (isNaN(amount) || amount <=0 || amount === '' || amount > initialBalance){
+    let amount = parseFloat(amountInput.value);
+    if (isNaN(amount) || amount <=0 || amount === '' || amount > currentBalance){
         actionInput.textContent = `Invalid transaction!`
         return;
     } else {
-        amount = initialBalance - amount;
-        actionInput.textContent = ` Withdrawal : ${currentBalance} `;
-        initialBalance.textContent = `Balance: ${amount}`;
+        currentBalance = currentBalance - amount;
+        actionInput.textContent = ` Withdrawal : ${amount} `;
+        //updateBalance();
+        balance.textContent = `Balance: ${currentBalance}€`;
     }
-});
+}); 
 
-depositAmount.addEventListener("click", (amount) =>{
+depositAmount.addEventListener("click", () =>{
+    let amount = parseFloat(amountInput.value);
     if (isNaN(amount) || amount <= 0 || amount === ''){
         actionInput.textContent = `Invalid transaction!`
-    } else{
-        currentBalance = initialBalance + amount;
-        actionInput.textContent = ` `
+    } else {
+        currentBalance += amount;
+        actionInput.textContent = ` Deposit: ${amount} `
+        //updateBalance();
+        balance.textContent = `Balance: ${currentBalance}€`
     }
 });
 
+//Se puede tb actualizar el balance desde otro método y llamarlo:
 updateBalance.addEventListener("click", () =>{
-
+    balance.textContent = `Balance: ${currentBalance}`
 
 });
 
