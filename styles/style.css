@@ -5,27 +5,36 @@
 body{
     display: flex;
     justify-content: center;
-    padding: 40px;
-    background-color: #657ad8;
+    align-items: center;
+    background-color: #939fd4;
+    height: 80vh;
 }
 
 .atm{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     text-align: center;
     background: linear-gradient(white, #c1bdbd);
-    width: 500px;
+    width: 400px;
     height: 50vh;
     padding: 10px;
     border-radius: 8px;
 }
 
 .amount{
-    width: 280px;
-    padding: 8px;
+    width: 300px;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid #242424;
 }
 
+.screen{
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.actions{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 
